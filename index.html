@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Pall Mall Estates | Commercial Property To Let</title>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --pm-purple: #3c1053;
+      --pm-yellow: #ffb800;
+      --dark-blue: #0b192c;
+      --navy-blue: #1e3a8a;
+      --royal-blue: #2563eb;
+      --pure-white: #ffffff;
+      --light-gray: #f8fafc;
+      --border-gray: #e2e8f0;
+      --text-dark: #1e1b2e;
+      --text-muted: #64748b;
+      --rainbow-gradient: linear-gradient(90deg, #ef4444, #f97316, #ffb800, #22c55e, #2563eb, #3c1053);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--light-gray);
+      color: var(--text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Top Rainbow Accent Line */
+    .rainbow-bar {
+      height: 6px;
+      width: 100%;
+      background: var(--rainbow-gradient);
+    }
+
+    /* Utility Header Bar */
+    .utility-bar {
+      background-color: var(--pm-purple);
+      color: var(--pure-white);
+      padding: 0.6rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.875rem;
+    }
+
+    .utility-bar .contacts {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .utility-bar .contacts a {
+      color: #e2e8f0;
+      font-weight: 500;
+      transition: color 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .utility-bar .contacts a:hover {
+      color: var(--pm-yellow);
+    }
+
+    .header-main {
+      background-color: var(--pure-white);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      max-width: 70%;
+    }
+
+    .logo-svg {
+      height: 56px;
+      width: auto;
+      max-width: 100%;
+      display: block;
+    }
+
+    nav {
+      transition: all 0.3s ease;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    nav a {
+      font-weight: 700;
+      color: var(--pm-purple);
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--royal-blue);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: transparent;
+      border: none;
+      font-size: 1.6rem;
+      color: var(--pm-purple);
+      cursor: pointer;
+      padding: 0.5rem;
+      border-radius: 6px;
+    }
+
+    .btn-cta {
+      background-color: var(--royal-blue);
+      color: var(--pure-white);
+      padding: 0.75rem 1.4rem;
+      border-radius: 6px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: all 0.2s;
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+    }
+
+    .btn-cta:hover {
+      background-color: var(--pm-purple);
+      transform: translateY(-1px);
+    }
+
+    .btn-yellow {
+      background-color: var(--pm-yellow);
+      color: var(--pm-purple);
+      box-shadow: 0 4px 10px rgba(255, 184, 0, 0.3);
+    }
+
+    .btn-yellow:hover {
+      background-color: #e5a700;
+    }
+
+    .hero {
+      background: linear-gradient(rgba(60, 16, 83, 0.90), rgba(11, 25, 44, 0.92)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80') center/cover;
+      color: var(--pure-white);
+      padding: 5rem 2rem 6rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 950px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255, 184, 0, 0.2);
+      border: 1px solid var(--pm-yellow);
+      color: var(--pm-yellow);
+      padding: 0.4rem 1.1rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 900;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      color: #e2e8f0;
+      margin-bottom: 2.5rem;
+    }
+
+    .search-card {
+      background: var(--pure-white);
+      padding: 1.75rem;
+      border-radius: 12px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .search-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr) 160px;
+      gap: 1rem;
+      align-items: end;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--pm-purple);
+      margin-bottom: 0.4rem;
+    }
+
+    .form-group select, .form-group input {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--border-gray);
+      border-radius: 6px;
+      outline: none;
+      font-size: 0.95rem;
+      background-color: var(--light-gray);
+    }
+
+    .section-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title h2 {
+      font-size: 2.2rem;
+      color: var(--pm-purple);
+      font-weight: 900;
+    }
+
+    .section-title p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    .category-card {
+      background: var(--pure-white);
+      padding: 2rem;
+      border-radius: 10px;
+      border: 1px solid var(--border-gray);
+      text-align: center;
+      transition: all 0.3s;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .category-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--rainbow-gradient);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .category-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 20px rgba(0,0,0,0.08);
+      border-color: var(--pm-purple);
+    }
+
+    .category-card:hover::before {
+      opacity: 1;
+    }
+
+    .category-icon {
+      width: 60px;
+      height: 60px;
+      background: rgba(60, 16, 83, 0.06);
+      color: var(--pm-purple);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin: 0 auto 1.25rem;
+    }
+
+    .category-card h3 {
+      font-size: 1.25rem;
+      color: var(--pm-purple);
+      margin-bottom: 0.5rem;
+    }
+
+    .property-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .property-card {
+      background: var(--pure-white);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border-gray);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+      transition: all 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .property-card:hover {
+      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    }
+
+    .property-img {
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .property-tag {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: var(--pm-purple);
+      color: var(--pm-yellow);
+      padding: 0.3rem 0.75rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .property-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .property-body h3 {
+      font-size: 1.3rem;
+      color: var(--pm-purple);
+      margin-bottom: 0.25rem;
+    }
+
+    .property-location {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .property-specs {
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid var(--border-gray);
+      border-bottom: 1px solid var(--border-gray);
+      padding: 0.75rem 0;
+      margin-bottom: 1.25rem;
+      font-size: 0.875rem;
+      color: var(--pm-purple);
+      font-weight: 700;
+      margin-top: auto;
+    }
+
+    .trust-banner {
+      background-color: var(--pm-purple);
+      color: var(--pure-white);
+      padding: 4rem 2rem;
+      border-top: 4px solid var(--pm-yellow);
+    }
+
+    .stats-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .stat-item h3 {
+      font-size: 2.8rem;
+      color: var(--pm-yellow);
+      font-weight: 900;
+    }
+
+    .stat-item p {
+      color: #cbd5e1;
+      font-size: 1rem;
+    }
+
+    /* Modal Styling */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(60, 16, 83, 0.85);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      backdrop-filter: blur(4px);
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: var(--pure-white);
+      width: 100%;
+      max-width: 500px;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-header {
+      background: var(--pm-purple);
+      color: var(--pure-white);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 3px solid var(--pm-yellow);
+    }
+
+    .modal-body {
+      padding: 1.5rem;
+      overflow-y: auto;
+    }
+
+    .modal-body .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .close-modal {
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: var(--pure-white);
+      line-height: 1;
+    }
+
+    footer {
+      background-color: #1a0626;
+      color: #94a3b8;
+      padding: 4rem 2rem 2rem;
+      border-top: 1px solid #2d0c40;
+    }
+
+    .footer-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-col h4 {
+      color: var(--pure-white);
+      font-size: 1.1rem;
+      margin-bottom: 1.25rem;
+      border-left: 3px solid var(--pm-yellow);
+      padding-left: 0.5rem;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 0.6rem;
+    }
+
+    .footer-col ul a {
+      transition: color 0.2s;
+    }
+
+    .footer-col ul a:hover {
+      color: var(--pm-yellow);
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid #2d0c40;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 900px) {
+      .utility-bar {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+        padding: 0.6rem 1rem;
+      }
+
+      .utility-bar .contacts {
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      .header-main {
+        padding: 0.85rem 1.25rem;
+        position: relative;
+      }
+
+      .logo-svg {
+        height: 44px;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--pure-white);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        display: none;
+        padding: 1.25rem 1.5rem;
+        border-top: 2px solid var(--pm-yellow);
+        z-index: 99;
+      }
+
+      nav.open {
+        display: block;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+      }
+
+      nav a {
+        display: block;
+        width: 100%;
+        padding: 0.4rem 0;
+        border-bottom: 1px solid #f1f5f9;
+        font-size: 1.05rem;
+      }
+
+      .header-cta {
+        display: none;
+      }
+
+      .hero {
+        padding: 3.5rem 1.25rem 4.5rem;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+      }
+
+      .search-card {
+        padding: 1.25rem;
+      }
+
+      .search-grid {
+        grid-template-columns: 1fr;
+        gap: 0.85rem;
+      }
+
+      .section-container {
+        padding: 3rem 1.25rem;
+      }
+
+      .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+
+      .property-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+
+      .stat-item h3 {
+        font-size: 2.2rem;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo-svg {
+        height: 36px;
+      }
+
+      .hero h1 {
+        font-size: 1.75rem;
+      }
+
+      .hero-badge {
+        font-size: 0.75rem;
+        padding: 0.35rem 0.85rem;
+      }
+
+      .category-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Rainbow Top Bar -->
+  <div class="rainbow-bar"></div>
+
+  <div class="utility-bar">
+    <div class="contacts">
+      <a href="tel:18005550199"><i class="fa-solid fa-phone"></i> (800) 555-0199</a>
+      <a href="mailto:contact@pallmallestates.com"><i class="fa-solid fa-envelope"></i> contact@pallmallestates.com</a>
+    </div>
+    <div>
+      <span><i class="fa-solid fa-shield-halved"></i> Direct Commercial Landlord &bull; Over 4M Sq Ft Portfolio</span>
+    </div>
+  </div>
+
+  <!-- Main Navigation Header with Exact Official Pall Mall Logo SVG -->
+  <header class="header-main">
+    <div class="logo-container" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+      <!-- EXACT OFFICIAL LOGO VECTOR (PERSPECTIVE WAREHOUSE + SLOGAN) -->
+      <svg class="logo-svg" viewBox="0 0 780 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Roof Yellow Triangle Perspective -->
+        <path d="M10 50 L180 10 L180 60 L10 60 Z" fill="#ffb800"/>
+        <!-- Side Purple Perspective Block -->
+        <path d="M180 10 L230 30 L230 60 L180 60 Z" fill="#3c1053"/>
+        <!-- Side Purple Windows -->
+        <path d="M198 38 L212 43 L212 60 L198 60 Z" fill="#ffffff"/>
+        <!-- Bottom Solid Purple Block -->
+        <rect x="10" y="65" width="220" height="65" fill="#3c1053"/>
+        <!-- Pall Mall Text in Logo -->
+        <text x="24" y="112" font-family="-apple-system, BlinkMacSystemFont, Arial, sans-serif" font-weight="800" font-size="44" fill="#ffffff">Pall Mall</text>
+        
+        <!-- Official Slogan Text -->
+        <text x="270" y="60" font-family="-apple-system, BlinkMacSystemFont, Arial, sans-serif" font-weight="800" font-size="30" fill="#3c1053">High value, low cost, flexible business</text>
+        <text x="270" y="105" font-family="-apple-system, BlinkMacSystemFont, Arial, sans-serif" font-weight="800" font-size="30" fill="#3c1053">space to let throughout the UK</text>
+      </svg>
+    </div>
+
+    <!-- Mobile Hamburger Menu Button -->
+    <button class="mobile-menu-btn" id="menuToggle" aria-label="Toggle Navigation">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <nav id="primaryNav">
+      <ul>
+        <li><a href="#properties" onclick="closeNav()">Properties</a></li>
+        <li><a href="#categories" onclick="closeNav()">Space Types</a></li>
+        <li><a href="#about" onclick="closeNav()">Why Pall Mall</a></li>
+        <li><a href="#contact" onclick="closeNav()">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-cta">
+      <button class="btn-cta btn-yellow" onclick="openModal()">
+        <i class="fa-solid fa-calendar-check"></i> Arrange Viewing
+      </button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-badge">Over 4 Million Sq Ft Owned Across the Portfolio</span>
+      <h1>High Value Commercial Space To Let Direct From The Landlord</h1>
+      <p>Industrial units, offices, workshops, and retail premises tailored to your business growth.</p>
+      
+      <!-- Interactive Search Box -->
+      <div class="search-card">
+        <div class="search-grid">
+          <div class="form-group">
+            <label><i class="fa-solid fa-map-pin"></i> Region</label>
+            <select id="searchRegion">
+              <option value="all">All Regions</option>
+              <option value="London">London & South East</option>
+              <option value="Midlands">Midlands</option>
+              <option value="North">North East & North West</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label><i class="fa-solid fa-building"></i> Property Type</label>
+            <select id="searchType">
+              <option value="all">All Space Types</option>
+              <option value="Industrial">Industrial & Warehouse</option>
+              <option value="Office">Office Spaces</option>
+              <option value="Retail">Retail & Shop</option>
+              <option value="Workshop">Workshop & Studio</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label><i class="fa-solid fa-ruler-combined"></i> Size (Sq Ft)</label>
+            <select id="searchSize">
+              <option value="all">Any Size</option>
+              <option value="small">Under 2,500 sq ft</option>
+              <option value="medium">2,500 - 20,000 sq ft</option>
+              <option value="large">20,000+ sq ft</option>
+            </select>
+          </div>
+
+          <button class="btn-cta" style="height: 46px; justify-content: center; width: 100%;" onclick="filterProperties()">
+            <i class="fa-solid fa-magnifying-glass"></i> Search
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-container" id="categories">
+    <div class="section-title">
+      <h2>Explore Commercial Space Types</h2>
+      <p>Find low-cost, high-value business space suited for every industry sector.</p>
+    </div>
+
+    <div class="category-grid">
+      <div class="category-card" onclick="quickFilter('Industrial')">
+        <div class="category-icon"><i class="fa-solid fa-warehouse"></i></div>
+        <h3>Industrial & Warehouses</h3>
+        <p>High eaves, roller shutter access, and direct transport links for manufacturing & logistics.</p>
+      </div>
+
+      <div class="category-card" onclick="quickFilter('Office')">
+        <div class="category-icon"><i class="fa-solid fa-building"></i></div>
+        <h3>Office Spaces</h3>
+        <p>Flexible modern suites in prime commercial business hubs.</p>
+      </div>
+
+      <div class="category-card" onclick="quickFilter('Workshop')">
+        <div class="category-icon"><i class="fa-solid fa-wrench"></i></div>
+        <h3>Workshops & Studios</h3>
+        <p>Ideal for emerging businesses, creative studios, trades, and light production.</p>
+      </div>
+
+      <div class="category-card" onclick="quickFilter('Retail')">
+        <div class="category-icon"><i class="fa-solid fa-store"></i></div>
+        <h3>Retail Premises</h3>
+        <p>High footfall shop units and parades situated in vibrant local communities.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-container" id="properties" style="background-color: var(--pure-white); border-radius: 16px; margin-bottom: 4rem;">
+    <div class="section-title">
+      <h2>Featured Commercial Opportunities</h2>
+      <p>A selection of available properties from our extensive portfolio.</p>
+    </div>
+
+    <div class="property-grid" id="propertyContainer">
+      <div class="property-card" data-type="Office" data-region="London" data-size="medium">
+        <div class="property-img" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80');">
+          <span class="property-tag">Office</span>
+        </div>
+        <div class="property-body">
+          <h3>Hatton Garden Suites</h3>
+          <p class="property-location"><i class="fa-solid fa-location-dot"></i> Central London, EC1N</p>
+          <div class="property-specs">
+            <span><i class="fa-solid fa-ruler"></i> 15,221 sq ft</span>
+            <span><i class="fa-solid fa-shield"></i> Direct Landlord</span>
+          </div>
+          <button class="btn-cta" style="width: 100%; justify-content: center;" onclick="openModal('Hatton Garden Suites')">Enquire Now</button>
+        </div>
+      </div>
+
+      <div class="property-card" data-type="Industrial" data-region="Midlands" data-size="large">
+        <div class="property-img" style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80');">
+          <span class="property-tag">Industrial</span>
+        </div>
+        <div class="property-body">
+          <h3>Bloomsgrove Estate</h3>
+          <p class="property-location"><i class="fa-solid fa-location-dot"></i> Nottingham, NG7</p>
+          <div class="property-specs">
+            <span><i class="fa-solid fa-ruler"></i> 126,527 sq ft</span>
+            <span><i class="fa-solid fa-truck"></i> Loading Yard</span>
+          </div>
+          <button class="btn-cta" style="width: 100%; justify-content: center;" onclick="openModal('Bloomsgrove Estate')">Enquire Now</button>
+        </div>
+      </div>
+
+      <div class="property-card" data-type="Workshop" data-region="London" data-size="small">
+        <div class="property-img" style="background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80');">
+          <span class="property-tag">Workshop / Studio</span>
+        </div>
+        <div class="property-body">
+          <h3>Wilds Rents Studios</h3>
+          <p class="property-location"><i class="fa-solid fa-location-dot"></i> South East London, SE1</p>
+          <div class="property-specs">
+            <span><i class="fa-solid fa-ruler"></i> 4,218 sq ft</span>
+            <span><i class="fa-solid fa-clock"></i> Flexible Lease</span>
+          </div>
+          <button class="btn-cta" style="width: 100%; justify-content: center;" onclick="openModal('Wilds Rents Studios')">Enquire Now</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust-banner" id="about">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <h3>4M+</h3>
+        <p>Sq Ft Owned & Managed</p>
+      </div>
+      <div class="stat-item">
+        <h3>500+</h3>
+        <p>Commercial Properties</p>
+      </div>
+      <div class="stat-item">
+        <h3>0%</h3>
+        <p>Broker Commission Fees</p>
+      </div>
+      <div class="stat-item">
+        <h3>100%</h3>
+        <p>Direct Tenant Support</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Viewing Booking Modal -->
+  <div class="modal" id="bookingModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 style="font-size: 1.1rem;"><i class="fa-solid fa-building-circle-check"></i> Arrange a Property Viewing</h3>
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+      </div>
+      <div class="modal-body">
+        <form onsubmit="handleFormSubmit(event)">
+          <div class="form-group">
+            <label>Selected Property / Interest</label>
+            <input type="text" id="modalPropertyName" value="General Enquiry" readonly>
+          </div>
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" required placeholder="John Doe">
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" required placeholder="john@business.com">
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" required placeholder="(800) 555-0199">
+          </div>
+          <button type="submit" class="btn-cta btn-yellow" style="width: 100%; justify-content: center; margin-top: 1rem;">
+            Submit Viewing Request
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer id="contact">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Pall Mall Estates</h4>
+        <p style="font-size: 0.9rem; line-height: 1.6;">High value, low cost, flexible business space to let throughout the network.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Property Types</h4>
+        <ul>
+          <li><a href="#categories" onclick="quickFilter('Industrial')">Industrial Units</a></li>
+          <li><a href="#categories" onclick="quickFilter('Office')">Office Premises</a></li>
+          <li><a href="#categories" onclick="quickFilter('Workshop')">Workshops & Studios</a></li>
+          <li><a href="#categories" onclick="quickFilter('Retail')">Retail Shops</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Get In Touch</h4>
+        <ul>
+          <li><i class="fa-solid fa-phone" style="color: var(--pm-yellow);"></i> (800) 555-0199</li>
+          <li><i class="fa-solid fa-envelope" style="color: var(--pm-yellow);"></i> contact@pallmallestates.com</li>
+          <li><i class="fa-solid fa-globe" style="color: var(--pm-yellow);"></i> www.pallmallestates.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; Pall Mall Estates Concept. Built for presentation & portfolio purposes.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript Controls -->
+  <script>
+    const menuBtn = document.getElementById('menuToggle');
+    const primaryNav = document.getElementById('primaryNav');
+
+    menuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      primaryNav.classList.toggle('open');
+      const icon = menuBtn.querySelector('i');
+      if (primaryNav.classList.contains('open')) {
+        icon.className = 'fa-solid fa-xmark';
+      } else {
+        icon.className = 'fa-solid fa-bars';
+      }
+    });
+
+    function closeNav() {
+      if (primaryNav.classList.contains('open')) {
+        primaryNav.classList.remove('open');
+        menuBtn.querySelector('i').className = 'fa-solid fa-bars';
+      }
+    }
+
+    document.addEventListener('click', (e) => {
+      if (!primaryNav.contains(e.target) && !menuBtn.contains(e.target)) {
+        closeNav();
+      }
+    });
+
+    function openModal(propertyName = 'General Enquiry') {
+      document.getElementById('modalPropertyName').value = propertyName;
+      document.getElementById('bookingModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('bookingModal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      alert('Thank you for your enquiry! The viewing team will get back to you shortly.');
+      closeModal();
+    }
+
+    function filterProperties() {
+      const region = document.getElementById('searchRegion').value;
+      const type = document.getElementById('searchType').value;
+      const size = document.getElementById('searchSize').value;
+
+      const cards = document.querySelectorAll('.property-card');
+
+      cards.forEach(card => {
+        const matchesRegion = (region === 'all' || card.dataset.region === region);
+        const matchesType = (type === 'all' || card.dataset.type === type);
+        const matchesSize = (size === 'all' || card.dataset.size === size);
+
+        if (matchesRegion && matchesType && matchesSize) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function quickFilter(type) {
+      document.getElementById('searchType').value = type;
+      filterProperties();
+      document.getElementById('properties').scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
